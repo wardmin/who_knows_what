@@ -1,0 +1,15 @@
+<% include partials/header %>
+<div class = "container">
+    <div class = "jumbotron">
+        <h1>List of Users</h1>
+    </div>
+
+        <% users.forEach(function(user){ %>
+           <li>
+               <%= user.name%> &ndash; <%= user.email %> 
+               <%= user.department %>
+               <%= user.status %>
+           </li>
+        <% }); %>
+
+<% include partials/footer %>

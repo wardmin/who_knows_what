@@ -8,6 +8,7 @@ var express = require("express"),
 
 mongoose.connect("mongodb://localhost/who_knows_app");
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('public'))
 app.set("view engine", "ejs");
 
 
@@ -36,18 +37,18 @@ app.set("view engine", "ejs");
 
 // var Skill = 
 
-User.create({
-    email: "carmen@wang.com",
-    department: "Awesome",
-    status: "The Carminions live",
-    password: "jellyfish"
-}, function(err, user){
-    if(err){
-        console.log(err);
-    } else {
-        console.log(user);
-    }
-});
+// User.create({
+//     email: "carmen@wang.com",
+//     department: "Awesome",
+//     status: "The Carminions live",
+//     password: "jellyfish"
+// }, function(err, user){
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(user);
+//     }
+// });
 
 app.get("/", function(req, res){
     res.render("home");
@@ -65,6 +66,15 @@ app.get("/profile", function(req, res){
     res.render("profile");
 })
 
+app.get("/users", function(req, res){
+    User.find({}, function(err, allUsers){
+        if(err){
+            console.log(err)
+        } else {
+            res.render("users", {users:allUsers});
+        } 
+    });
+});
 
 
 // api route

@@ -1,8 +1,8 @@
-var Message = require('../models/message');
+var Message = require('../models/userSkillMapping');
 
 module.exports = {
     get: function (req, res) {
-        Message.find({}).populate('user', '-pwd').exec(function (err, result) {
+        UserSkillMapping.find({}).populate('user', '-pwd').exec(function (err, result) {
             res.send(result);
         })
     },
@@ -11,7 +11,7 @@ module.exports = {
         
         req.body.user = req.user;
         
-        var message = new Message(req.body);
+        var userSkillMapping = new userSkillMapping(req.body);
 
         message.save();
 

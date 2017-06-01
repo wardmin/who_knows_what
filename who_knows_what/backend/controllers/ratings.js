@@ -11,9 +11,9 @@ module.exports = {
         
         req.body.user = req.user;
         
-        var message = new Message(req.body);
+        var rating = new Ratings(req.body);
 
-        message.save();
+        rating.save();
 
         res.status(200);
     }
