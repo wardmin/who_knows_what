@@ -1,7 +1,12 @@
-var Message = require('../models/userSkillMapping');
+var UserSkillMapping = require('../models/userSkillMapping');
 
 module.exports = {
-    get: function (req, res) {
+    getOnePersonAllSkills: function (req, res) {
+        UserSkillMapping.find({}).populate('user', '-pwd').exec(function (err, result) {
+            res.send(result);
+        })
+    },
+    getAllPeopleOneSkills: function (req, res) {
         UserSkillMapping.find({}).populate('user', '-pwd').exec(function (err, result) {
             res.send(result);
         })
@@ -13,7 +18,7 @@ module.exports = {
         
         var userSkillMapping = new userSkillMapping(req.body);
 
-        message.save();
+        userSkillMapping.save();
 
         res.status(200);
     }

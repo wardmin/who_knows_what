@@ -5,5 +5,13 @@ module.exports = mongoose.model('Users',{
     name: String,
     department: String,
     status: String,
-    password: String
+    title: String,
+    password: String,
+    slackId: String,
+    skills: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Skill"
+        }
+    ]
 });

@@ -1,4 +1,4 @@
-var Message = require('../models/ratings');
+var Ratings = require('../models/ratings');
 
 module.exports = {
     get: function (req, res) {

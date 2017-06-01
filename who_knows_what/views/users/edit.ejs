@@ -1,12 +1,57 @@
 <% include ../partials/header %>
-<div class="container">
-    <h1> Edit User</h1>
-   
-    <form action="/users/<%= user._id %>?_method=PUT" method="POST">
-       Name: <input type="text" name="user[name]" value="<%= user.name %>" > <br />
-        Email: <input type="text" name="user[email]" value="<%= user.email%>"> <br />
-        Department: <input type="text" name="user[department]" value="<%= user.department %>" > <br />
-        Status: <input type="text" name="user[status]" value="<%= user.status%>" > <br />
-        Title: <input type="text" name="user[title]" value="<%= user.title%>" > <br />
-        <button class="btn btn-lg">Submit</button>
-    </form>
+
+<div class="page-header text-center">
+    <h1> Who Knows What?</h1>
+</div>
+
+
+<p class=" text-info"></p>
+      </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= user.name %></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://media.glassdoor.com/sqll/954292/index-exchange-squarelogo-1460525916964.png" class="img-circle img-responsive"> </div>
+		<div class="container">
+		<h1> Edit User</h1>
+		<form action="/users/<%= user._id %>?_method=PUT" method="POST">
+			<div class=" col-md-9 col-lg-9 "> 
+			  <table class="table table-user-information">
+			    <tbody>
+			      <tr>
+				<td>Name:<input type="text" name="user[name]" value="<%= user.name %>" ></td>
+			      </tr>
+			      <tr>
+				<td>Email Address:<input type="text" name="user[email]" value="<%= user.email%>"></td>
+			      </tr>
+			      <tr>
+				<td>Status:<input type="text" name="user[status]" value="<%= user.status%>" ></td>
+			      </tr>
+			      <tr>
+				<td>Title:<input type="text" name="user[title]" value="<%= user.title%>" ></td>
+			      </tr>
+			    </tbody>
+			  </table>
+		<button class="btn btn-lg">Submit</button>
+		</form>
+		</dev>
+                 <div class="panel-footer">
+                        <a href="mailto:<%=user.email%>@indexexchange.com" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                        <span class="pull-right">
+                            <a href="/users/<%=user._id%>/edit" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="https://who-knows-what-wardmin.c9users.io/users" data-original-title="All Users" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-user"></i></a>
+                        </span>
+                    </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</div>
+<% include ../partials/footer %>
+
+
+    

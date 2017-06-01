@@ -12,6 +12,8 @@
                <p>Email: <a href="/users/<%=user._id%>"><%= user.email %></a></p> 
                <p>Department: <%= user.department %></p>
                <p>Status: <%= user.status %></p>
+               <p>Title: <%=user.title%></p>
+               <p>Slack userID: <%=user.slackId%></p>
            </li>
         <% }); %>
 

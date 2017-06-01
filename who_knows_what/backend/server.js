@@ -15,9 +15,15 @@ app.use(bodyParser.json());
 app.use(cors);
 
 //Requests
-app.get('/api/message', message.get);
+app.get('/api/ratings', ratings.get);
 
-app.post('/api/message',checkAuthenticated, message.post);
+app.post('/api/ratings',checkAuthenticated, ratings.post);
+
+app.get('/api/userSkillMapping', ratings.getOnePersonAllSkills);
+
+app.get('/api/userSkillMapping', ratings.getAllPeopleOneSkills);
+
+app.post('/api/userSkillMapping',checkAuthenticated, ratings.post);
 
 app.post('/auth/register', auth.register);
 
