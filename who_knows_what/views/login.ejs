@@ -1,7 +1,25 @@
 <% include partials/header %>
 
-<h1> This is the login Page for Who knows What</h1>
+import { AuthController } from './auth.controller';
 
-
+<div class="page-header text-center">
+    <h1> Who Knows What?</h1>
+</div>
+<div class="container">
+    <div style="background:transparent !important" class="jumbotron text-center">
+        <div class="text-center">
+            <img src="images/login.jpg" class="center-block img-responsive" alt="logo" width="304" height="236"> 
+            
+            <form class="navbar-form navbar-center" role="username">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="username">
+                    <input type="text" class="form-control" placeholder="password">
+                    
+                </div>
+                <a href="https://who-knows-what-wardmin.c9users.io/users" button type="Search" class="btn btn-lg btn-success" role="button"> Login</button></a>
+            </form>
+         </div>
+    </div>
+</div>
 
 <% include partials/footer %>

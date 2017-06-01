@@ -6,9 +6,12 @@
 
         <% users.forEach(function(user){ %>
            <li>
-               <%= user.name%> &ndash; <%= user.email %> 
-               <%= user.department %>
-               <%= user.status %>
+               <h3>
+                   <a href="/users/<%=user._id%>"><%= user.name%></a>
+               </h3> 
+               <p>Email: <a href="/users/<%=user._id%>"><%= user.email %></a></p> 
+               <p>Department: <%= user.department %></p>
+               <p>Status: <%= user.status %></p>
            </li>
         <% }); %>
 

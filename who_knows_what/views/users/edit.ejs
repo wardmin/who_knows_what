@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+<div class="container">
+    <h1> Edit User</h1>
+   
+    <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+       Name: <input type="text" name="user[name]" value="<%= user.name %>" > <br />
+        Email: <input type="text" name="user[email]" value="<%= user.email%>"> <br />
+        Department: <input type="text" name="user[department]" value="<%= user.department %>" > <br />
+        Status: <input type="text" name="user[status]" value="<%= user.status%>" > <br />
+        Title: <input type="text" name="user[title]" value="<%= user.title%>" > <br />
+        <button class="btn btn-lg">Submit</button>
+    </form>
