@@ -8,6 +8,8 @@ module.exports = mongoose.model('Users',{
     title: String,
     password: String,
     slackId: String,
+    knowledge: String,
+    rating: Number,
     skills: [
         {
             type: mongoose.Schema.Types.ObjectId,

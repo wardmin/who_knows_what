@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 
-module.exports = mongoose.model('Skills',{
+module.exports = mongoose.model('Skill',{
     name: String,
-    level: Number,
+    level: String,
     belongsTo: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
-        }
+        },
+        email: String,
     }
 });

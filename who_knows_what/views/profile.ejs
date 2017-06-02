@@ -40,6 +40,10 @@
                         <td><%=user.email%></td>
                       </tr>
                       <tr>
+                        <td>Department:</td>
+                        <td><%=user.department%></td>
+                      </tr>
+                      <tr>
                         <td>Status:</td>
                         <td><%=user.status%></td>
                       </tr>
@@ -47,13 +51,22 @@
                         <td>Title:</td>
                         <td><%=user.title%></td>
                       </tr>
+                      <tr>
+                        <td>Slack Username:</td>
+                        <td><%=user.slackId%></td>
+                      </tr>
                     </tbody>
                   </table>
         
         <h3>Skills:</h3>
+        <% user.skills.forEach(function(skill){ %>
+                  
+          <p>
+            <%= skill.name %> &ndash; Level: <%= skill.level %> <br />
+          </p>
+          <% }); %>
         
-        
-        <a href="/skills/<%=user._id%>/editSkill">edit skills</a>
+        <a href="/users/<%=user._id%>/skills/new">edit skills</a>
         
                 </div>
               </div>

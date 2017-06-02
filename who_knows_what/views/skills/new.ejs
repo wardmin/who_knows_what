@@ -3,16 +3,17 @@
     <h1> Add Skills for <%= user.name %></h1>
    
     <form action="/users/<%= user._id %>/skills" method="POST">
-       Add Skill: <input type="text" name="user[name]" value="<%= user.name %>" > <br />
+       Add Skill: <input type="text" name="skills[name]"  > <br />
+       Add Level: <input type="text" name="skills[level]" > <br />
        
        
        
-       
+       <!-- 
         Email: <input type="text" name="user[email]" value="<%= user.email%>"> <br />
         Department: <input type="text" name="user[department]" value="<%= user.department %>" > <br />
         Status: <input type="text" name="user[status]" value="<%= user.status%>" > <br />
         Title: <input type="text" name="user[title]" value="<%= user.title%>" > <br />
-        Slack Username: <input type="text" name="user[slackId]" value="<%= user.slackId%>" > <br />
+        Slack Username: <input type="text" name="user[slackId]" value="<%= user.slackId%>" > <br /> --> 
         <button class="btn btn-lg">Submit</button>
     </form>
     

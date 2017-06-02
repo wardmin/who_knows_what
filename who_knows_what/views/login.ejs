@@ -1,6 +1,9 @@
 <% include partials/header %>
 
-import { AuthController } from './auth.controller';
+<style type="text/css">
+
+
+</style>
 
 <div class="page-header text-center">
     <h1> Who Knows What?</h1>
@@ -9,17 +12,44 @@ import { AuthController } from './auth.controller';
     <div style="background:transparent !important" class="jumbotron text-center">
         <div class="text-center">
             <img src="images/login.jpg" class="center-block img-responsive" alt="logo" width="304" height="236"> 
+            <p id="error"></p>
             
-            <form class="navbar-form navbar-center" role="username">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="username">
-                    <input type="text" class="form-control" placeholder="password">
-                    
-                </div>
-                <a href="https://who-knows-what-wardmin.c9users.io/users" button type="Search" class="btn btn-lg btn-success" role="button"> Login</button></a>
+             <form class="navbar-form navbar-center" role="username"  action="/api/login" method="POST">
+            <p>
+            <label for="pwd">email:  </label>
+            <input id="em" name="email" type="text">
+            </p>
+            <p>
+            <label for="pwd">password:</label>
+            <input id="pwd" name="password" type="password">
+            </p>
+            <button button-type="Search" class="btn btn-lg btn-success" role="button">Login</button>
+            
             </form>
+                <br /><a href="https://who-knows-what-wardmin.c9users.io/register" button type="Search" class="btn btn-lg btn-success" role="button">Register</a>
+                
+                <!--<a href="https://who-knows-what-wardmin.c9users.io/users" button type="Search" class="btn btn-lg btn-success" role="button">Login</button></a>-->
+                
+            
          </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+function checkDB() {
+    
+    var emailAddress = document.getElementById("em").value;
+    var pwd = document.getElementById("pwd").value;
+    var result  = "https://who-knows-what-wardmin.c9users.io/api/" + emailAddress;
+    
+    if (result.password == pwd) {
+                window.location.href = "https://who-knows-what-wardmin.c9users.io/users";
+            } else{
+                document.getElementById("error").value = "Wrong password or address. Try again!"
+            }
+    
+}
+</script>
 
 <% include partials/footer %>
