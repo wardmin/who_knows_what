@@ -1,11 +1,11 @@
 <% include partials/header %>
 
-<div class="page-header text-center">
+<div class="page-header text-center text-info">
     <h1> Who Knows What?</h1>
 </div>
 
 <p class="text-info">
-      <form action="/users/add"> 
+      <form class="navbar-form navbar-center" role="username"  action="/api/register" method="POST">
       </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
           <div class="panel panel-info">
@@ -16,39 +16,47 @@
               <div class="row">
                 <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://0.s3.envato.com/files/166459326/register-login-add-on.png" class="img-circle img-responsive"> </div>
 		<div class="container">
-			<div class=" col-md-4 col-lg-4 "> 
-			  <table class="table table-user-information">
-			    <tbody>
-			    <tr>
-				<td>Email Address:</td>
-				<td><input type="text" name="user[email]" value=""><br /></td>
-			      </tr>
-			      <tr>
-			    <td>Name:</td>
-				<td><input type="text" name="user[name]" value=""><br /></td>
-			      </tr>
-			      <tr>
-			    <td>Department:</td>
-				<td><input type="text" name="user[password]" value=""><br /></td>
-			      </tr>
-			      <tr>
-				<td>Password:</td>
-				<td><input type="password" name="user[password]" value=""><br /></td>
-			      </tr>
-			    <tr>
-			    <td>Confirm Password:</td>
-				<td><input type="password" name="user[password]" value=""><br /></td>
-			      </tr>
-			    </tbody>
-			  </table>
-		<button class="btn btn-primary">Register</button>
-		<!--<a href="https://who-knows-what-wardmin.c9users.io/login" button class="btn btn-primary">Sign In</button>-->
+			<div class=" col-md-2 col-lg-2 "> 
+			  <p>
+            <label class= "control-label col-sm-2 text-left text-info" for="email">Email:</label>
+            <input id="em" class="form-control" name="email" type="text">
+            </p>
+            
+            <p>
+            <label class= "control-label col-sm-2 text-left text-info" for="name">Name:</label>
+            <input id="em" class="form-control" name="name" type="text">
+            </p>
+            
+            <p>
+            <label class= "control-label col-sm-2 text-left text-info" for="department">Department:</label>
+            <input id="em" class="form-control" name="department" type="text">
+            </p>
+            
+            <p>
+            <label class= "control-label col-sm-2 text-left text-info" for="pwd">Password:</label>
+            <input id="pwd" class="form-control" name="password" type="password">
+            </p>
+            
+             <p>
+            <label class= "control-label col-sm-2 text-left text-info" for="pwd">Confirm Password:</label>
+            <input id="pwd" class="form-control" name="confirmpassword" type="password">
+            </p>
+            
+            <button class="btn btn-primary">Register</button>
+            <a href="/login" button type="Search" class="btn btn-primary" role="button">Login</a>
+		</form>
+		   
 		</dev>
-          </div>
-        </div>
+		 </div>
+		 </div>
       </div>
     </div>
-    </form>
+    </div>
+    </div>
+    </div> 
+    
+
+           
 
 </div>
 

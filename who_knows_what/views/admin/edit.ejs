@@ -22,8 +22,7 @@
 			<div class=" col-md-4 col-lg-4 "> 
 			  <table class="table table-user-information">
 			    <tbody>
-			    	
-			    <div class="text-center text-info">
+			    <div class="page-header text-center text-info">
     				<h1>EDIT</h1>
 				</div>
 				<td>Name:</td>
@@ -33,10 +32,10 @@
 				<td>Email Address:</td>
 				<td><input type="text" name="user[email]" value="<%= user.email%>"><br /></td>
 			      </tr>
-			     <!--  <tr>
+			      <tr>
 				<td>Image:</td>
 				<td><input type="text" name="user[image]" value="<%= user.image%>"><br /></td>
-			      </tr> -->
+			      </tr>
 			       <tr>
 				<td>Department:</td>
 				<td><input type="text" name="user[department]" value="<%= user.department %>" > <br />
@@ -49,18 +48,13 @@
 				<td>Title:</td>
 				<td><input type="text" name="user[title]" value="<%= user.title%>" > <br /></td>
 			      </tr>
-			<!--       <tr>
+			      <tr>
 				<td>Slack Username</td>
 				<td><input type="text" name="user[slackId]" value="<%= user.slackId%>" > <br />
-			      </tr> -->
+			      </tr>
 				<td>Rating</td>
 				<td><input type="text" name="user[rating]" value="<%= user.rating%>" > <br />
 			      </tr>
-			      
-			    <!--   </tr>
-				<td>Knowledge</td>
-				<td><input type="text" name="user[knowledge]" value="<%= user.knowledge%>" > <br />
-			      </tr> -->
 			    </tbody>
 			  </table>
 		<button class="btn btn-primary">Submit</button>
@@ -71,10 +65,10 @@
     </div>
     </form>
                      <div class="panel-footer">
-                        <a href="https://who-knows-what-wardmin.c9users.io/login" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-log-out"></i></a>
+                        <a href="mailto:<%=user.email%>@indexexchange.com" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
                         <span class="pull-right">
-                            <a href="/users/<%=user._id%>/edit" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a href="https://who-knows-what-wardmin.c9users.io/users/<%=user._id%>" data-original-title="All Users" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-remove-circle"></i></a>
+                            <a href="/users/<%=user._id%>/edit" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="https://who-knows-what-wardmin.c9users.io/users/<%=user._id%>" data-original-title="All Users" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-remove-circle"></i></a>
                         </span>
                     </div>
 </div>

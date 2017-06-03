@@ -1,22 +1,64 @@
 <% include ../partials/header %>
-<div class="container">
-    <h1> Add Skills for <%= user.name %></h1>
-   
+<div class="page-header text-center text-info">
+    <h1> Who Knows What?</h1>
+</div>
+
+<p class="text-info">
     <form action="/users/<%= user._id %>/skills" method="POST">
-       Add Skill: <input type="text" name="skills[name]"  > <br />
-       Add Level: <input type="text" name="skills[level]" > <br />
-       
-       
-       
-       <!-- 
-        Email: <input type="text" name="user[email]" value="<%= user.email%>"> <br />
-        Department: <input type="text" name="user[department]" value="<%= user.department %>" > <br />
-        Status: <input type="text" name="user[status]" value="<%= user.status%>" > <br />
-        Title: <input type="text" name="user[title]" value="<%= user.title%>" > <br />
-        Slack Username: <input type="text" name="user[slackId]" value="<%= user.slackId%>" > <br /> --> 
-        <button class="btn btn-lg">Submit</button>
-    </form>
-    
-    
-    <form that will edit skill></form>
-    
+      </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"> Add Skills for <%= user.name %></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%= user.image %>" class="img-circle img-responsive"> </div>
+		<div class="container">
+			<div class=" col-md-4 col-lg-4 "> 
+			 
+			 
+		<h3>Skills:</h3>
+        <% user.skills.forEach(function(skill){ %>
+          <p>
+              <% console.log(skill); %>
+            <%= skill.name %> &ndash; Level: <%= skill.level %> <br />
+          </p>
+          <% }); %>
+			 
+			 
+			  <table class="table table-user-information">
+			    <tbody>
+			    <tr>
+				<td>Add Skill:</td>
+				<td><input type="text" name="skills[name]"  > <br /></td>
+			      </tr>
+			      <tr>
+			    <td>Add Level:</td>
+				<td><input type="text" name="skills[level]" > <br /></td>
+			      </tr>
+			      <tr>
+			    </tbody>
+			  </table>
+		<button class="btn btn-primary">Submit</button>
+		</form>
+	
+		</dev>
+		 </div>
+		 </div>
+
+      </div>
+    </div>
+    <div class="panel-footer">
+
+    <a href="https://who-knows-what-wardmin.c9users.io/users/<%= user._id %>" data-original-title="All Users" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-circle-arrow-left "></i></a>
+    </span>
+    </div>
+    </div>
+    </div>
+                     
+          </div>
+
+</div> 
+</div>
+<% include ../partials/footer %>

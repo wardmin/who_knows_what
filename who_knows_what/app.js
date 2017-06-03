@@ -23,6 +23,8 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 
+var userID;
+
 
 // passport.use(new LocalStrategy(User.authenticate()));
 // passport.serializeUser(User.serializeUser());
@@ -128,11 +130,11 @@ app.get("/users/", function(req, res){
 app.get("/users/:id/skills/new", function(req, res){
     // find user by id
     console.log(req.params.id);
-    User.findById(req.params.id, function(err, user){
+    User.findById(req.params.id).populate("skills").exec(function(err, foundUser){
         if(err){
             console.log(err); 
         } else {
-             res.render("skills/new", {user: user});
+             res.render("skills/new", {user: foundUser});
         }
     })
 });
@@ -182,22 +184,28 @@ app.get("/api/:skill", function(req, res){
 });
 
 app.get("/api/test/:skill", function(req, res){
-    Skill.find({"name": req.params.skill }, function(err, allSkills){
+    var query = Skill.find({'name': req.params.skill });
+    console.log("This is " + query);
+    Skill.find({name: req.params.skill }, function(err, allSkills){
+        console.log("This is req.params: " + req.params.skill);
+        
         if(err){
             console.log(req.params);
             console.log(err);
         } else {
-            console.log(allSkills[0].belongsTo.id);
-            var foundUsers = []
+            console.log(allSkills);
+            var found = {}
             allSkills.forEach(function(skill){
-                User.findById(skill.belongsTo.id).populate("skills").exec(function(err, foundUser){
+                console.log("This is skill.id: " + skill.id);
+                User.findById(skill.id).populate("user").exec(function(err, foundUser){
                 if(err){
                     res.redirect("back");
                 } else {
-                    console.log(foundUser);
-                    foundUsers.push(foundUser);
+                    console.log("this is foundUser " + foundUser);
+                    console.log("this is found " + found)
+                    // foundUser.push(found);
                 }
-                res.send(foundUsers);
+                res.send(found);
                 });
             });
         };
@@ -227,18 +235,6 @@ app.get("/api/test/:skill", function(req, res){
 //         }
        
 //   })});
-
-app.get("/api/:email", function(req, res){
-    User.findOne({ email: req.params.email },function(err,result){
-        if(err){
-            console.log(err);
-        } else {
-            console.log(result)
-            res.send({users:result});
-        }
-    });
-});
-   
    
    
 app.post("/api/login", function(req, res){
@@ -251,11 +247,55 @@ app.post("/api/login", function(req, res){
             if(result.password === req.body.password) {
                 res.redirect("/users/" + result.id);
             } else { 
+                userID = result._id;
             res.redirect("/login");
             }
         }
     });
-});   
+}); 
+
+app.post("/api/register", function(req, res){
+    console.log(req.body)
+    User.findOne({ email: req.body.email },function(err,result){
+        if(err){
+            console.log(err);
+        } else {
+            console.log(result)
+            if(result.email === req.body.email) {
+                console.log("user already exist");
+            }
+        }
+    });
+    
+    var users = new User();
+    users.email = req.body.email;
+    users.name = req.body.name;
+    users.department = req.body.department;
+    users.password = req.body.password;
+    users.status = "";
+    users.title = "";
+    users.slackID = "";
+    users.knowledge = "";
+    users.rating = "";
+    users.image = "";
+   users.save(function(err, users){
+        if(err) return err;
+        res.send(users); 
+        //console.log(users.id);
+       res.redirect("/users/" + users.id);
+    });
+    
+    // User.findOne({ email: req.body.email },function(err,result){
+    //     if(err){
+    //         console.log(err);
+    //     } else {
+    //         res.redirect("/users/" + result.id);
+    //     }
+    // });
+}); 
+
+
+
 // api route
 app.get("/ratings/", function(req, res){
     User.find({}, function(err){

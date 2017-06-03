@@ -9,7 +9,8 @@ module.exports = mongoose.model('Users',{
     password: String,
     slackId: String,
     knowledge: String,
-    rating: Number,
+    rating: String,
+    image: String,
     skills: [
         {
             type: mongoose.Schema.Types.ObjectId,
