@@ -1,0 +1,25 @@
+{
+  "name": "who_knows_what",
+  "version": "2.0.0",
+  "description": "app to help you find help ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "help"
+  ],
+  "author": "ward minnis",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.3",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-slack": "0.0.7"
+  }
+}
